@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import API from "../api";
 
+function Welcome(props) {
+  return <li>Hello, {props.name}</li>;
+}
+
 class App extends Component {
   state = { users: [] };
 
@@ -17,7 +21,7 @@ class App extends Component {
         <h1>React App</h1>
         <ul>
           {this.state.users.map(user => (
-            <li key={user.id}>{user.name}</li>
+            <Welcome key={user.id} name={user.name} />
           ))}
         </ul>
       </div>
