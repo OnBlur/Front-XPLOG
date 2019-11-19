@@ -1,0 +1,33 @@
+$nunito-font-dir: "~assets/fonts/nunito/";
+// $icon-dir: "~static/icons/";
+
+
+/*===============================================================================================*/
+/*		                                  FONT - McLaren							         		              	 */
+/*===============================================================================================*/
+
+@font-face {
+  font-family: "McLaren";
+  src: url($nunito-font-dir+"Nunito-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*===============================================================================================*/
+/*		ICONFONTS																											 */
+/*===============================================================================================*/
+
+/* Default icons, arrows and such */
+
+// @font-face {
+//   font-family: "icons";
+//   src: url($icon-dir+"platform-zelfontwikkeling.eot");
+//   src: url($icon-dir+"platform-zelfontwikkeling.eot?#iefix")
+//       format("embedded-opentype"),
+//     url($icon-dir+"platform-zelfontwikkeling.woff") format("woff"),
+//     url($icon-dir+"platform-zelfontwikkeling.ttf") format("truetype"),
+//     url($icon-dir+"platform-zelfontwikkeling.svg#platform-zelfontwikkeling")
+//       format("svg");
+//   font-weight: normal;
+//   font-style: normal;
+// }
