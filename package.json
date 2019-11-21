@@ -1,6 +1,6 @@
 {
   "name": "music-master",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,12 @@
     "node-sass": "^4.13.0",
     "parcel-bundler": "^1.12.4",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "react-redux": "5.0.6",
+    "redux": "3.7.2",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-preset-react-native-stage-0": "^1.0.1"
   }
 }
