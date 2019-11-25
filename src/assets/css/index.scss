@@ -1,4 +1,5 @@
 // Default scss
-@import "colors";
-@import "style";
+@import "default/reset";
+@import "default/colors";
+@import "default/base";
 @import "fonts";

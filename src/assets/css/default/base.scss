@@ -1,0 +1,51 @@
+body {
+  font-family: "McLaren";
+
+  .container-fluid {
+
+    .side-menu {
+      height: 100%;
+      width: 160px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      color: white;
+      overflow-x: hidden;
+
+      display: flex;
+      flex-direction: column;
+
+      .close-icon {
+        text-align: end;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 16pt;
+      }
+    }
+
+    .entry-component {
+      margin-left: 160px;
+
+      .page-title {
+        text-align: center;
+        color: $warning;
+      }
+
+      .entries {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .entry {
+          width: 300px;
+          background-color: gray;
+          margin: 5px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
