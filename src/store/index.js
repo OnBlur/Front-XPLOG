@@ -2,7 +2,15 @@ import { ENTRIES } from "./entries/types";
 import { SET_MENU } from "./state/types";
 
 const DEFAULT_SETINGS = {
-  entries: null,
+  entries: [
+    {
+      body: "leeg body #1",
+      id: 9332420,
+      title: "leeg title #1",
+      userId: 13432
+    },
+    { body: "leeg body #2", id: 9332330, title: "leeg title #2", userId: 13332 }
+  ],
   menuState: true
 };
 

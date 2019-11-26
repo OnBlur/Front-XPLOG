@@ -22,7 +22,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return { entries: state.entries };
+  return {};
 };
 
 const componentConnector = connect(mapStateToProps, {
