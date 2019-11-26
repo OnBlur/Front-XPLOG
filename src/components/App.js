@@ -1,13 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { fetchEntries } from "../store/entries/settings";
 
 import SideMenu from "./SideMenu";
 import Entries from "./Entries";
 
-export default function App() {
-  return (
-    <div className="container-fluid">
-      <SideMenu />
-      <Entries />
-    </div>
-  );
+class App extends Component {
+  componentWillMount() {
+    this.props.fetchEntries();
+  }
+
+  render() {
+    return (
+      <div className="container-fluid">
+        <SideMenu />
+        <Entries />
+      </div>
+    );
+  }
 }
+
+const mapStateToProps = state => {
+  return { entries: state.entries };
+};
+
+const componentConnector = connect(mapStateToProps, {
+  fetchEntries
+});
+
+export default componentConnector(App);

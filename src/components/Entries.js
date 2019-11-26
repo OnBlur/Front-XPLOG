@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setEntries } from "../store/entries/settings";
 import { fetchEntries } from "../store/entries/settings";
-import API from "../api";
 
 function Entry(props) {
   return (
@@ -15,10 +13,6 @@ function Entry(props) {
 
 class Entries extends Component {
   state = { entries: [] };
-
-  componentDidMount() {
-    this.props.fetchEntries();
-  }
 
   render() {
     return (
@@ -35,12 +29,10 @@ class Entries extends Component {
 }
 
 const mapStateToProps = state => {
-  // const { entries } = state;
+  console.log("asd", state.entries);
   return { entries: state.entries };
 };
 
-const componentConnector = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
   fetchEntries
-});
-
-export default componentConnector(Entries);
+})(Entries);

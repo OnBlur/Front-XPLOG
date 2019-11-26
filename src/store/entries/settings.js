@@ -1,15 +1,8 @@
-import { SET_ENTRIES } from "./types";
-import API from "../../api";
+import { ENTRIES } from "./types";
+import API from "../api";
 
-export const setEntries = data => {
-  return { type: SET_ENTRIES, entries: data };
-};
-
-export const fetchEntriesSuccess = entryJson => {
-  console.log("gas");
-  const { id, title, body } = entryJson;
-
-  return { type: ENTRIES.FETCH_SUCCESS, id, title, body };
+export const fetchEntriesSuccess = data => {
+  return { type: ENTRIES.FETCH_SUCCESS, data };
 };
 
 export const fetchEntriesError = error => {
@@ -23,8 +16,8 @@ export const fetchEntries = () => dispatch => {
       if (response.status !== 200) {
         throw new Error("Unsuccessful request to deckofcardsapi.com");
       }
-      return response.json();
+      return response.data;
     })
-    .then(json => dispatch(setEntries(json)))
+    .then(data => dispatch(fetchEntriesSuccess(data)))
     .catch(error => dispatch(fetchEntriesError(error)));
 };

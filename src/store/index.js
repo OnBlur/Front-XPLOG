@@ -1,4 +1,4 @@
-import { SET_ENTRIES } from "./entries/types";
+import { ENTRIES } from "./entries/types";
 import { SET_MENU } from "./state/types";
 
 const DEFAULT_SETINGS = {
@@ -8,10 +8,15 @@ const DEFAULT_SETINGS = {
 
 const rootReducer = (state = DEFAULT_SETINGS, action) => {
   switch (action.type) {
-    case SET_ENTRIES:
+    case ENTRIES.FETCH_SUCCESS:
       return {
         ...state,
-        entries: action.entries
+        entries: action.data
+      };
+    case ENTRIES.FETCH_ERROR:
+      return {
+        ...state,
+        message: action.message
       };
     case SET_MENU:
       return {
