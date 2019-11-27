@@ -2,23 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addEntry, removeEntry } from "../store/entries/settings";
 
-function Entry(props) {
-  const removeItem = id => {
-    console.log("Click happened", id);
-  };
-
-  return (
-    <div className="entry">
-      <div className="content">
-        <div className="entry-title">{props.title}</div>
-        <div className="entry-body">{props.body}</div>
-      </div>
-      <div className="delete" onClick={removeItem(props.id)}>
-        <a className="icon">X</a>
-      </div>
-    </div>
-  );
-}
+import Entry from "./Entry";
 
 class Entries extends Component {
   constructor(props) {

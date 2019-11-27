@@ -32,9 +32,10 @@ const rootReducer = (state = DEFAULT_SETINGS, action) => {
         entries: [...state.entries, action.data]
       };
     case ENTRIES.REMOVE:
+      const id = action.id;
       return {
         ...state,
-        entries: action.id
+        entries: state.entries.filter(entry => entry.id !== id)
       };
     case SET_MENU:
       return {

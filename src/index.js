@@ -7,8 +7,6 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import rootReducer from "./store/index";
-// import stateReducer from "./store/state/reducers";
-// import entriesReducer from "./store/entries/reducers";
 
 import "./assets/css/index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
