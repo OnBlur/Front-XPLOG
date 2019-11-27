@@ -9,6 +9,14 @@ export const fetchEntriesError = error => {
   return { type: ENTRIES.FETCH_ERROR, message: error.message };
 };
 
+export const addEntry = data => {
+  return { type: ENTRIES.ADD, data };
+};
+
+export const removeEntry = id => {
+  return { type: ENTRIES.REMOVE, id };
+};
+
 //Fetching entries
 export const fetchEntries = () => dispatch => {
   return API.get(`posts`)

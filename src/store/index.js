@@ -26,6 +26,16 @@ const rootReducer = (state = DEFAULT_SETINGS, action) => {
         ...state,
         message: action.message
       };
+    case ENTRIES.ADD:
+      return {
+        ...state,
+        entries: [...state.entries, action.data]
+      };
+    case ENTRIES.REMOVE:
+      return {
+        ...state,
+        entries: action.id
+      };
     case SET_MENU:
       return {
         ...state,

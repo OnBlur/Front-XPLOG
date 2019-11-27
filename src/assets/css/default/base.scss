@@ -39,11 +39,35 @@ body {
         flex-wrap: wrap;
         justify-content: space-between;
 
+
         .entry {
           width: 300px;
           background-color: gray;
           margin: 5px;
           padding: 10px;
+
+          display: flex;
+          justify-content: space-between;
+
+          .content {
+            // display: flex;
+
+            .entry-title {
+              font-size: 20pt;
+            }
+
+
+          }
+
+          .delete {
+            // padding: 10px;
+
+            .icon {
+              cursor: pointer;
+              color: red;
+            }
+          }
+
         }
       }
     }
