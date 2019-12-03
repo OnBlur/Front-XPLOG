@@ -27,6 +27,7 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "babel-plugin-object-to-json-parse": "0.0.8",
     "babel-preset-react-native-stage-0": "^1.0.1"
   }
 }

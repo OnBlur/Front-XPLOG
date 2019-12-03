@@ -1,8 +1,6 @@
 import { ENTRIES } from "./entries/types";
 import { SET_MENU } from "./state/types";
 
-import update from "immutability-helper";
-
 const DEFAULT_SETINGS = {
   entries: [
     {
@@ -34,13 +32,13 @@ const rootReducer = (state = DEFAULT_SETINGS, action) => {
         entries: [...state.entries, action.data]
       };
     case ENTRIES.EDIT:
-      // let index = action.data.id;
-      return {
-        ...state,
-        entries: state.entries.map((entry, i) =>
-          i === action.data.id ? { ...entry, ...action.data } : entry
-        )
-      };
+      const updatedItems = state.entries.map(entry => {
+        if(entry.id === action.data.id){
+          return { ...entry, ...action.data }
+        }
+        return entry
+      })
+      return {...state, entries: updatedItems}
     case ENTRIES.REMOVE:
       const id = action.id;
       return {
