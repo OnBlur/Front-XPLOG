@@ -13,6 +13,10 @@ export const addEntry = data => {
   return { type: ENTRIES.ADD, data };
 };
 
+export const editEntry = data => {
+  return { type: ENTRIES.EDIT, data };
+};
+
 export const removeEntry = id => {
   return { type: ENTRIES.REMOVE, id };
 };

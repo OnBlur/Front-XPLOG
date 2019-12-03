@@ -7,8 +7,13 @@ const Entry = props => {
         <div className="entry-title">{props.title}</div>
         <div className="entry-body">{props.body}</div>
       </div>
-      <div className="delete" onClick={() => props.removeEntry(props.id)}>
-        <a className="icon">X</a>
+      <div className="function">
+        <a className="icon edit" onClick={() => props.editEntry(props.id)}>
+          Edit
+        </a>
+        <a className="icon delete" onClick={() => props.removeEntry(props.id)}>
+          X
+        </a>
       </div>
     </div>
   );

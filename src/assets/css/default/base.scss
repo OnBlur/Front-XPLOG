@@ -59,10 +59,17 @@ body {
 
           }
 
-          .delete {
-            // padding: 10px;
+          .function {
+            display: flex;
+            width: 50px;
+            justify-content: space-between;
 
-            .icon {
+            .edit {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+
+            .delete {
               cursor: pointer;
               color: red;
             }
