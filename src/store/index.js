@@ -33,12 +33,12 @@ const rootReducer = (state = DEFAULT_SETINGS, action) => {
       };
     case ENTRIES.EDIT:
       const updatedItems = state.entries.map(entry => {
-        if(entry.id === action.data.id){
-          return { ...entry, ...action.data }
+        if (entry.id === action.data.id) {
+          return { ...entry, ...action.data };
         }
-        return entry
-      })
-      return {...state, entries: updatedItems}
+        return entry;
+      });
+      return { ...state, entries: updatedItems };
     case ENTRIES.REMOVE:
       const id = action.id;
       return {
