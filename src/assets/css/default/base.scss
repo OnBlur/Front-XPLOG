@@ -1,32 +1,44 @@
 body {
   font-family: "McLaren";
 
-  .side-menu {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
+  .menu {
     background-color: #111;
     color: white;
-    overflow-x: hidden;
+    padding: 10px;
 
     display: flex;
-    flex-direction: column;
-
-    .close-icon {
-      text-align: end;
-      margin: 10px;
-      cursor: pointer;
-      font-size: 16pt;
+    justify-content: space-between;
+    align-items: center;
+    .navigation {
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        li {
+          float: left;
+          a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .close {
+      .icon {
+        color: white;
+        cursor: pointer;
+        font-size: 16pt;
+      }
     }
   }
 
   .container-fluid {
     .entry-component {
-      margin-left: 160px;
-
       .page-title {
         text-align: center;
         color: $warning;

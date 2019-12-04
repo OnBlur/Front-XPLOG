@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 import rootReducer from "./store/index";
 
 import App from "./components/App";
-import SideMenu from "./components/SideMenu";
+import Menu from "./components/Menu";
 import Jokes from "./components/Jokes";
 
 import "./assets/css/index.scss";
@@ -27,18 +27,18 @@ ReactDOM.render(
           exact
           path="/"
           render={() => (
-            <SideMenu>
+            <Menu>
               <App />
-            </SideMenu>
+            </Menu>
           )}
         />
         <Route
           exact
           path="/jokes"
           render={() => (
-            <SideMenu>
+            <Menu>
               <Jokes />
-            </SideMenu>
+            </Menu>
           )}
         />
       </Switch>

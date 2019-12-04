@@ -48,7 +48,7 @@ const rootReducer = (state = DEFAULT_SETINGS, action) => {
     case SET_MENU:
       return {
         ...state,
-        menuState: action.menuState
+        menuState: !state.menuState
       };
     default:
       return state;
