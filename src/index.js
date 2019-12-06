@@ -11,6 +11,7 @@ import rootReducer from "./store/index";
 import App from "./components/App";
 import Menu from "./components/Menu";
 import Jokes from "./components/Jokes";
+import EntryPage from "./components/EntryPage";
 
 import "./assets/css/index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -38,6 +39,15 @@ ReactDOM.render(
           render={() => (
             <Menu>
               <Jokes />
+            </Menu>
+          )}
+        />
+        <Route
+          exact
+          path="/entry/:id"
+          render={() => (
+            <Menu>
+              <EntryPage />
             </Menu>
           )}
         />

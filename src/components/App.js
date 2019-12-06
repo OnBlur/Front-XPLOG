@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import { fetchEntries } from "../store/entries/settings";
 
@@ -27,4 +28,4 @@ const componentConnector = connect(mapStateToProps, {
   fetchEntries
 });
 
-export default componentConnector(App);
+export default withRouter(componentConnector(App));

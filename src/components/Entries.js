@@ -1,5 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
+
+import EntryPage from "./EntryPage";
 import { addEntry, editEntry, removeEntry } from "../store/entries/settings";
 
 import Entry from "./Entry";
@@ -83,14 +94,19 @@ class Entries extends Component {
 
         <div className="entries">
           {this.props.entries.map(entry => (
-            <Entry
-              key={entry.id}
-              title={entry.title}
-              body={entry.body}
-              id={entry.id}
-              editEntry={this.prepareEditEntry}
-              removeEntry={this.props.removeEntry}
-            />
+            <div key={entry.id}>
+              <Link to={`/entry/${entry.id}`} body={entry.body}>
+                {entry.title}
+              </Link>
+              <Entry
+                key={entry.id}
+                title={entry.title}
+                body={entry.body}
+                id={entry.id}
+                editEntry={this.prepareEditEntry}
+                removeEntry={this.props.removeEntry}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -102,8 +118,10 @@ const mapStateToProps = state => {
   return { entries: state.entries };
 };
 
-export default connect(mapStateToProps, {
-  addEntry,
-  editEntry,
-  removeEntry
-})(Entries);
+export default withRouter(
+  connect(mapStateToProps, {
+    addEntry,
+    editEntry,
+    removeEntry
+  })(Entries)
+);

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { toggleMenu } from "../store/state/settings";
 
@@ -43,6 +44,8 @@ const mapStateToProps = state => {
   return { menuState: state.menuState };
 };
 
-export default connect(mapStateToProps, {
-  toggleMenu
-})(Menu);
+export default withRouter(
+  connect(mapStateToProps, {
+    toggleMenu
+  })(Menu)
+);
