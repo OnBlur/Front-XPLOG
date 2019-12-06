@@ -45,6 +45,8 @@ const rootReducer = (state = DEFAULT_SETINGS, action) => {
         ...state,
         entries: state.entries.filter(entry => entry.id !== id)
       };
+    case ENTRIES.GETBYID:
+      return state.entries.filter(entry => entry.id === id);
     case SET_MENU:
       return {
         ...state,

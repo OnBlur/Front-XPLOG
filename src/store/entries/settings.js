@@ -21,6 +21,10 @@ export const removeEntry = id => {
   return { type: ENTRIES.REMOVE, id };
 };
 
+export const getEntryById = id => {
+  return { type: ENTRIES.GETBYID, id };
+};
+
 //Fetching entries
 export const fetchEntries = () => dispatch => {
   return API.get(`posts`)

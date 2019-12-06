@@ -1,19 +1,30 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { useParams } from "react-router";
+import { withRouter } from "react-router-dom";
 
-class EntryPage extends Component {
-  componentDidMount() {
-    console.log("handle", location.pathname);
-  }
-  render() {
-    return (
-      <div className="entry">
-        <div className="content">
-          {/* <div className="entry-title">{props.title}</div> */}
-          {/* <div className="entry-body">{props.body}e</div> */}
-        </div>
-      </div>
-    );
-  }
-}
+import { getEntryById } from "../store/entries/settings";
 
-export default EntryPage;
+const EntryPage = () => {
+  let { id } = useParams();
+  const [entries] = useState();
+
+  useEffect(() => {
+    getEntryById(id);
+  }, []);
+
+  return (
+    <div>
+      Portfolio component
+      <p>id: {id}</p>
+    </div>
+  );
+};
+
+const mapStateToProps = state => {
+  return { entries: state.entries };
+};
+
+export default withRouter(
+  connect(mapStateToProps, { getEntryById })(EntryPage)
+);
