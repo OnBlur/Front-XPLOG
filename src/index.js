@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
 
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import rootReducer from "./store/index";
@@ -11,12 +11,18 @@ import rootReducer from "./store/index";
 import App from "./components/App";
 import Menu from "./components/Menu";
 import Jokes from "./components/Jokes";
-import EntryPage from "./components/EntryPage";
+import EditEntry from "./components/Entries/EditEntry";
 
 import "./assets/css/index.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+//Redux chrome extension
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers(
+    applyMiddleware(thunk)
+));
+
+// const store = createStore(rootReducer, applyMiddleware(thunk));
 
 store.subscribe(() => console.log("store.getState()", store.getState()));
 
@@ -47,7 +53,7 @@ ReactDOM.render(
           path="/entry/:id"
           render={() => (
             <Menu>
-              <EntryPage />
+              <EditEntry />
             </Menu>
           )}
         />

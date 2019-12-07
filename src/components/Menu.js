@@ -1,13 +1,13 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { toggleMenu } from "../store/state/settings";
 
-function Menu(props) {
-  const { menuState, toggleMenu } = props;
+export const Menu = ({ children }) => {
+  const menuState = useSelector(state => state.menuState);
+  const dispatch = useDispatch();
 
   if (menuState) {
+    console.log("Is menu open?", menuState);
     return (
       <div>
         <div className="menu">
@@ -22,30 +22,23 @@ function Menu(props) {
             </ul>
           </div>
           <div className="close">
-            <a className="icon" onClick={toggleMenu}>
+            <a className="icon" onClick={() => dispatch({ type: "SET_MENU" })}>
               X
             </a>
           </div>
         </div>
-        {props.children}
+        <div className="container">{children}</div>
       </div>
     );
   } else {
+    console.log("Is menu open?", menuState);
     return (
       <div>
-        <div onClick={toggleMenu}>Menu</div>
-        {props.children}
+        <div onClick={() => dispatch({ type: "SET_MENU" })}>Menu</div>
+        <div className="container">{children}</div>
       </div>
     );
   }
-}
-
-const mapStateToProps = state => {
-  return { menuState: state.menuState };
 };
 
-export default withRouter(
-  connect(mapStateToProps, {
-    toggleMenu
-  })(Menu)
-);
+export default Menu;

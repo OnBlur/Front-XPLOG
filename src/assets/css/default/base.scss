@@ -37,7 +37,8 @@ body {
     }
   }
 
-  .container-fluid {
+  .container {
+    padding: 50px;
     .entry-component {
       .page-title {
         text-align: center;
@@ -58,6 +59,7 @@ body {
 
           display: flex;
           justify-content: space-between;
+          flex-direction: column-reverse;
 
           .content {
             // display: flex;
@@ -69,17 +71,18 @@ body {
 
           .function {
             display: flex;
-            width: 50px;
             justify-content: space-between;
 
             .edit {
               cursor: pointer;
               text-decoration: underline;
+              text-decoration: none;
+              color: $black;
             }
 
             .delete {
               cursor: pointer;
-              color: red;
+              color: $warning;
             }
           }
         }
