@@ -2,35 +2,34 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams, useLocation, useHistory } from "react-router";
 
-import { editEntry } from "../../store/entries/settings";
+import { addEntry } from "../../store/entries/settings";
 
-const EditEntry = () => {
-  let { id } = useParams();
+const AddEntry = () => {
   let location = useLocation();
   let history = useHistory();
   const dispatch = useDispatch();
 
   const [entry, setEntry] = useState({
-    id: location.state.entryId,
-    title: location.state.title,
-    body: location.state.body,
-    userId: location.state.userId
+    id: 123,
+    title: "",
+    body: "",
+    userId: 124
   });
 
   const mystyle = {
     textAlign: "center"
   };
 
-  const editHandler = event => {
+  const addHandler = event => {
     event.preventDefault();
-    dispatch(editEntry(entry));
+    dispatch(addEntry(entry));
     history.push("/");
   };
 
   console.log(location);
 
   return (
-    <form style={mystyle} onSubmit={editHandler}>
+    <form style={mystyle} onSubmit={addHandler}>
       <h1>Titel</h1>
       <input
         type="text"
@@ -47,10 +46,11 @@ const EditEntry = () => {
         value={entry.body}
         onChange={({ target }) => setEntry({ ...entry, body: target.value })}
       ></textarea>
-      <p>id: {id}</p>
-      <input type="submit" value="Save" />
+      <div>
+        <input type="submit" value="Save" />
+      </div>
     </form>
   );
 };
 
-export default EditEntry;
+export default AddEntry;

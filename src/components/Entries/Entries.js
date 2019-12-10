@@ -24,15 +24,16 @@ export const Entries = () => {
   return (
     <div className="entry-component">
       <h1 className="page-title">Entries</h1>
+      <Link to="/entry">Add new...</Link>
       <div className="entries">
         {entries.map(entry => (
-            <Entry
-              key={entry.id}
-              title={entry.title}
-              body={entry.body}
-              id={entry.id}
-              deleteEntry={deleteEntry}
-            />
+          <Entry
+            key={entry.id}
+            title={entry.title}
+            body={entry.body}
+            id={entry.id}
+            deleteEntry={deleteEntry}
+          />
         ))}
       </div>
     </div>
