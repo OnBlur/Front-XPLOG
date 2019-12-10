@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
 
 import { createStore, applyMiddleware, compose } from "redux";
@@ -11,10 +11,10 @@ import rootReducer from "./store/index";
 import App from "./components/App";
 import Menu from "./components/Menu";
 import Jokes from "./components/Jokes";
+import AddEntry from "./components/Entries/AddEntry";
 import EditEntry from "./components/Entries/EditEntry";
 
 import "./assets/css/index.scss";
-import AddEntry from "./components/Entries/AddEntry";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 //Redux chrome extension
@@ -30,46 +30,16 @@ store.subscribe(() => console.log("store.getState()", store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={createHistory()}>
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <Menu>
-              <App />
-            </Menu>
-          )}
-        />
-        <Route
-          exact
-          path="/jokes"
-          render={() => (
-            <Menu>
-              <Jokes />
-            </Menu>
-          )}
-        />
-        <Route
-          exact
-          path="/entry"
-          render={() => (
-            <Menu>
-              <AddEntry />
-            </Menu>
-          )}
-        />
-        <Route
-          exact
-          path="/entry/:id"
-          render={() => (
-            <Menu>
-              <EditEntry />
-            </Menu>
-          )}
-        />
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Menu>
+        <Switch>
+          <Route exact path="/" component={App}/>
+          <Route exact path="/jokes" component={Jokes}/>
+          <Route exact path="/entry" component={AddEntry}/>
+          <Route exact path="/entry/:id" component={EditEntry}/>
+        </Switch>
+      </Menu>
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );

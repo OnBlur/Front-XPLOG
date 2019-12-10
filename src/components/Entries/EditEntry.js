@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams, useLocation, useHistory } from "react-router";
+import { useParams } from "react-router";
 
 import { editEntry } from "../../store/entries/settings";
 
-const EditEntry = () => {
+const EditEntry = ({history, location}) => {
   let { id } = useParams();
-  let location = useLocation();
-  let history = useHistory();
   const dispatch = useDispatch();
+
+  const routes = {
+    Home: '/',
+  }
 
   const [entry, setEntry] = useState({
     id: location.state.entryId,
@@ -23,11 +25,10 @@ const EditEntry = () => {
 
   const editHandler = event => {
     event.preventDefault();
+    
     dispatch(editEntry(entry));
-    history.push("/");
+    history.push(routes.Home);
   };
-
-  console.log(location);
 
   return (
     <form style={mystyle} onSubmit={editHandler}>

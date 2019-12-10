@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams, useLocation, useHistory } from "react-router";
 
 import { addEntry } from "../../store/entries/settings";
 
-const AddEntry = () => {
-  let location = useLocation();
-  let history = useHistory();
+const AddEntry = ({history}) => {
   const dispatch = useDispatch();
 
-  const [entry, setEntry] = useState({
-    id: 123,
-    title: "",
-    body: "",
-    userId: 124
-  });
+  const routes = {
+    Home: '/',
+  }
+
+  // TODO: get id from api and store it in the state. Needs to happen in the Entries settings
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
 
   const mystyle = {
     textAlign: "center"
@@ -22,19 +20,18 @@ const AddEntry = () => {
 
   const addHandler = event => {
     event.preventDefault();
-    dispatch(addEntry(entry));
-    history.push("/");
+    
+    dispatch(addEntry({title, body}));
+    history.push(routes.Home);
   };
-
-  console.log(location);
 
   return (
     <form style={mystyle} onSubmit={addHandler}>
       <h1>Titel</h1>
       <input
         type="text"
-        value={entry.title}
-        onChange={({ target }) => setEntry({ ...entry, title: target.value })}
+        value={title}
+        onChange={({target}) => setTitle(target.value)}
       />
 
       <h1>Content</h1>
@@ -43,8 +40,8 @@ const AddEntry = () => {
         id=""
         cols="30"
         rows="10"
-        value={entry.body}
-        onChange={({ target }) => setEntry({ ...entry, body: target.value })}
+        value={body}
+        onChange={({target}) => setBody(target.value)}
       ></textarea>
       <div>
         <input type="submit" value="Save" />

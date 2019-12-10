@@ -1,14 +1,16 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch
-} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
+import { removeEntry } from "../../store/entries/settings";
 
 const Entry = props => {
+  const dispatch = useDispatch();
+
+  const deleteEntry = id => {
+    dispatch(removeEntry(id));
+  };
+
   return (
     <div className="entry">
       <div className="content">
@@ -30,7 +32,7 @@ const Entry = props => {
         >
           Edit
         </Link>
-        <a className="icon delete" onClick={() => props.deleteEntry(props.id)}>
+        <a className="icon delete" onClick={() => deleteEntry(props.id)}>
           X
         </a>
       </div>

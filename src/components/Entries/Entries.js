@@ -1,25 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch
-} from "react-router-dom";
-
-import { removeEntry } from "../../store/entries/settings";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Entry from "./Entry";
 
 export const Entries = () => {
   const entries = useSelector(state => state.entries);
-  const dispatch = useDispatch();
-
-  const deleteEntry = id => {
-    dispatch(removeEntry(id));
-  };
 
   return (
     <div className="entry-component">
@@ -32,7 +18,6 @@ export const Entries = () => {
             title={entry.title}
             body={entry.body}
             id={entry.id}
-            deleteEntry={deleteEntry}
           />
         ))}
       </div>

@@ -6,6 +6,11 @@ export const Menu = ({ children }) => {
   const menuState = useSelector(state => state.menuState);
   const dispatch = useDispatch();
 
+  const routes = {
+    Home: '/',
+    Jokes: "/jokes"
+  }
+
   if (menuState) {
     console.log("Is menu open?", menuState);
     return (
@@ -14,10 +19,10 @@ export const Menu = ({ children }) => {
           <div className="navigation">
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to={routes.Home}>Home</Link>
               </li>
               <li>
-                <Link to="/jokes">Jokes</Link>
+                <Link to={routes.Jokes}>Jokes</Link>
               </li>
             </ul>
           </div>
