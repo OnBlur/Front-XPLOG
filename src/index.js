@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { createBrowserHistory as createHistory } from "history";
 
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
@@ -33,10 +32,10 @@ ReactDOM.render(
     <BrowserRouter>
       <Menu>
         <Switch>
-          <Route exact path="/" component={App}/>
-          <Route exact path="/jokes" component={Jokes}/>
-          <Route exact path="/entry" component={AddEntry}/>
-          <Route exact path="/entry/:id" component={EditEntry}/>
+          <Route exact path="/" component={App} />
+          <Route exact path="/jokes" component={Jokes} />
+          <Route exact path="/entry" component={AddEntry} />
+          <Route exact path="/entry/:id" component={EditEntry} />
         </Switch>
       </Menu>
     </BrowserRouter>

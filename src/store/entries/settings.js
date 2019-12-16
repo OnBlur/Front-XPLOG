@@ -27,7 +27,7 @@ export const getEntryById = id => {
 
 //Fetching entries
 export const fetchEntries = () => dispatch => {
-  return API.get(`posts`)
+  return API.get(`posts`, { mode: "cors" })
     .then(response => {
       if (response.status !== 200) {
         throw new Error("Unsuccessful request to deckofcardsapi.com");
