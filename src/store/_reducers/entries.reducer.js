@@ -1,5 +1,4 @@
-import { ENTRIES } from "./entries/types";
-import { SET_MENU } from "./state/types";
+import { ENTRIES } from "../entries/types";
 
 const DEFAULT_SETINGS = {
   entries: [
@@ -37,28 +36,31 @@ const DEFAULT_SETINGS = {
       body: "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem",
       userId: 123
     }
-  ],
-  menuState: true
+  ]
 };
 
-const rootReducer = (state = DEFAULT_SETINGS, action) => {
+export function entryReducer(state = DEFAULT_SETINGS, action) {
   switch (action.type) {
     case ENTRIES.FETCH_SUCCESS:
+      // Fetch users from api
       return {
         ...state,
         entries: action.data
       };
     case ENTRIES.FETCH_ERROR:
+      // Fetch error
       return {
         ...state,
         message: action.message
       };
     case ENTRIES.ADD:
+      // Add user to state
       return {
         ...state,
         entries: [...state.entries, action.data]
       };
     case ENTRIES.EDIT:
+      // Edit user in state
       const updatedItems = state.entries.map(entry => {
         if (entry.id === action.data.id) {
           return { ...entry, ...action.data };
@@ -67,21 +69,16 @@ const rootReducer = (state = DEFAULT_SETINGS, action) => {
       });
       return { ...state, entries: updatedItems };
     case ENTRIES.REMOVE:
+      // Remove user from state
       return {
         ...state,
         entries: state.entries.filter(entry => entry.id !== action.id)
       };
     case ENTRIES.GETBYID:
+      // Get user by id
       const entry = state.entries.find(entry => entry.id == action.id);
       return { ...state, entry };
-    case SET_MENU:
-      return {
-        ...state,
-        menuState: !state.menuState
-      };
     default:
       return state;
   }
-};
-
-export default rootReducer;
+}

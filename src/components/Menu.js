@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const Menu = ({ children }) => {
-  const menuState = useSelector(state => state.menuState);
+  const menuState = useSelector(state => state.stateReducer);
   const dispatch = useDispatch();
 
   const routes = {
-    Home: '/',
+    Home: "/",
     Jokes: "/jokes"
-  }
+  };
 
   if (menuState) {
     console.log("Is menu open?", menuState);

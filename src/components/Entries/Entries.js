@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Entry from "./Entry";
 
 export const Entries = () => {
-  const entries = useSelector(state => state.entries);
+  const entries = useSelector(state => state.entryReducer.entries);
 
   return (
     <div className="entry-component">
