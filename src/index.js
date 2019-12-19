@@ -2,40 +2,44 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import rootReducer from "./store/_reducers/index";
+import { store } from "./_helpers";
 
 import App from "./components/App";
 import Menu from "./components/Menu";
 import Jokes from "./components/Jokes";
+import Login from "./components/Login";
+import Register from "./components/Register";
 import AddEntry from "./components/Entries/AddEntry";
 import EditEntry from "./components/Entries/EditEntry";
 
 import "./assets/css/index.scss";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
-//Redux chrome extension
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk))
-);
+// setup fake backend
+import { configureFakeBackend } from "./_helpers/fake-backend";
+configureFakeBackend();
 
-// const store = createStore(rootReducer, applyMiddleware(thunk));
-
-store.subscribe(() => console.log("store.getState()", store.getState()));
+const routes = {
+  Home: "/",
+  Jokes: "/jokes",
+  Entries: "/entry",
+  Entry: "/entry/:id",
+  Login: "/login",
+  Register: "/register"
+};
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Menu>
         <Switch>
-          <Route exact path="/" component={App} />
-          <Route exact path="/jokes" component={Jokes} />
-          <Route exact path="/entry" component={AddEntry} />
-          <Route exact path="/entry/:id" component={EditEntry} />
+          <Route exact path={routes.Home} component={App} />
+          <Route exact path={routes.Jokes} component={Jokes} />
+          <Route exact path={routes.Entries} component={AddEntry} />
+          <Route exact path={routes.Entry} component={EditEntry} />
+          <Route exact path={routes.Login} component={Login} />
+          <Route exact path={routes.Register} component={Register} />
         </Switch>
       </Menu>
     </BrowserRouter>

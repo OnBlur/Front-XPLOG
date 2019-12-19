@@ -1,6 +1,6 @@
 {
   "name": "XPLOG",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "homepage": "https://onblur.github.io/Front-XPLOG/",
@@ -28,6 +28,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
     "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {

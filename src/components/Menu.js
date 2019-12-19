@@ -8,7 +8,9 @@ export const Menu = ({ children }) => {
 
   const routes = {
     Home: "/",
-    Jokes: "/jokes"
+    Jokes: "/jokes",
+    Login: "/login",
+    Register: "/register"
   };
 
   if (menuState) {
@@ -20,6 +22,12 @@ export const Menu = ({ children }) => {
             <ul>
               <li>
                 <Link to={routes.Home}>Home</Link>
+              </li>
+              <li>
+                <Link to={routes.Login}>Login</Link>
+              </li>
+              <li>
+                <Link to={routes.Register}>Register</Link>
               </li>
               <li>
                 <Link to={routes.Jokes}>Jokes</Link>
