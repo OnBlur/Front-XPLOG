@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { PrivateRoute } from './components/PrivateRoute';
 
 import { Provider } from "react-redux";
 import { store } from "./_helpers";
@@ -34,10 +35,10 @@ ReactDOM.render(
     <BrowserRouter>
       <Menu>
         <Switch>
-          <Route exact path={routes.Home} component={App} />
-          <Route exact path={routes.Jokes} component={Jokes} />
-          <Route exact path={routes.Entries} component={AddEntry} />
-          <Route exact path={routes.Entry} component={EditEntry} />
+          <PrivateRoute exact path={routes.Home} component={App} />
+          <PrivateRoute exact path={routes.Jokes} component={Jokes} />
+          <PrivateRoute exact path={routes.Entries} component={AddEntry} />
+          <PrivateRoute exact path={routes.Entry} component={EditEntry} />
           <Route exact path={routes.Login} component={Login} />
           <Route exact path={routes.Register} component={Register} />
         </Switch>

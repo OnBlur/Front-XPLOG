@@ -1,28 +1,21 @@
 import { USERS } from "./types";
-import { userService } from "../_services";
-import { alertActions } from "./";
-import { history } from "../_helpers";
+import { userService } from "../../_services";
+// import { alertActions } from "./";
+// import { history } from "../../_helpers";
 
-export const userActions = {
-  login,
-  logout,
-  register,
-  getAll,
-  delete: _delete
-};
-
-function login(username, password) {
+export const login = (username, password, history ) => {
   return dispatch => {
     dispatch(request({ username }));
 
     userService.login(username, password).then(
       user => {
         dispatch(success(user));
+        console.log("send to login");
         history.push("/");
       },
       error => {
         dispatch(failure(error));
-        dispatch(alertActions.error(error));
+        // dispatch(alertActions.error(error));
       }
     );
   };
@@ -36,14 +29,14 @@ function login(username, password) {
   function failure(error) {
     return { type: USERS.LOGIN_FAILURE, error };
   }
-}
+};
 
-function logout() {
+export const logout = () => {
   userService.logout();
   return { type: USERS.LOGOUT };
-}
+};
 
-function register(user) {
+export const register = (user, history) => {
   return dispatch => {
     dispatch(request(user));
 
@@ -51,11 +44,11 @@ function register(user) {
       user => {
         dispatch(success());
         history.push("/login");
-        dispatch(alertActions.success("Registration successful"));
+        // dispatch(alertActions.success("Registration successful"));
       },
       error => {
         dispatch(failure(error));
-        dispatch(alertActions.error(error));
+        // dispatch(alertActions.error(error));
       }
     );
   };
@@ -69,9 +62,9 @@ function register(user) {
   function failure(error) {
     return { type: USERS.REGISTER_FAILURE, error };
   }
-}
+};
 
-function getAll() {
+export const getAll = () => {
   return dispatch => {
     dispatch(request());
 
@@ -90,10 +83,9 @@ function getAll() {
   function failure(error) {
     return { type: USERS.GETALL_FAILURE, error };
   }
-}
+};
 
-// prefixed function name with underscore because delete is a reserved word in javascript
-function _delete(id) {
+export const removeUser = id => {
   return dispatch => {
     dispatch(request(id));
 
@@ -116,4 +108,4 @@ function _delete(id) {
   function failure(id, error) {
     return { type: USERS.DELETE_FAILURE, id, error };
   }
-}
+};

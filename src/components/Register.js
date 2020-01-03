@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-export const Register = () => {
+import { register } from "../store/users/settings";
+
+export const Register = ({history}) => {
   const dispatch = useDispatch();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -16,7 +18,7 @@ export const Register = () => {
 
     setSubmitted(true);
     if (firstName && lastName && username && password) {
-      register(user);
+      dispatch(register({ firstName, lastName, username, password }, history));
     }
   };
 
@@ -40,7 +42,7 @@ export const Register = () => {
             value={firstName}
             onChange={({ target }) => setFirstName(target.value)}
           />
-          {submitted && !user.firstName && (
+          {submitted && !firstName && (
             <div className="help-block">First Name is required</div>
           )}
         </div>
@@ -57,7 +59,7 @@ export const Register = () => {
             value={lastName}
             onChange={({ target }) => setLastName(target.value)}
           />
-          {submitted && !user.lastName && (
+          {submitted && !lastName && (
             <div className="help-block">Last Name is required</div>
           )}
         </div>
@@ -74,7 +76,7 @@ export const Register = () => {
             value={username}
             onChange={({ target }) => setUsername(target.value)}
           />
-          {submitted && !user.username && (
+          {submitted && !username && (
             <div className="help-block">Username is required</div>
           )}
         </div>

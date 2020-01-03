@@ -1,6 +1,6 @@
 import { USERS } from "../users/types";
 
-export function users(state = {}, action) {
+export function userReducer(state = {}, action) {
   switch (action.type) {
     case USERS.GETALL_REQUEST:
       return {

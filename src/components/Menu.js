@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const Menu = ({ children }) => {
-  const menuState = useSelector(state => state.stateReducer);
+  const menuState = useSelector(state => state.stateReducer.menuState);
   const dispatch = useDispatch();
 
   const routes = {

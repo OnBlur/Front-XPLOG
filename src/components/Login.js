@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-// import { userActions } from "../_actions";
+import { login, logout } from "../store/users/settings";
 
-export const Login = () => {
+export const Login = ({history}) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    dispatch(logout());
+  }, []);
 
   const handleSubmit = event => {
     event.preventDefault();
 
     setSubmitted(true);
     if (username && password) {
-      login(username, password);
+      dispatch(login(username, password, history));
     }
   };
 
