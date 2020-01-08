@@ -6,6 +6,7 @@ const Joke = ({ joke: { setup, punchline } }) => (
   </p>
 );
 
+// OLD COMPONENT, DO NOT REPLICATE! USE HOOKS
 class Jokes extends Component {
   state = { joke: {}, jokes: [] };
 

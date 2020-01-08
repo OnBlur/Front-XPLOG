@@ -10,6 +10,7 @@ export const Menu = ({ children }) => {
     Home: "/",
     Jokes: "/jokes",
     Login: "/login",
+    Admin: "/admin",
     Register: "/register"
   };
 
@@ -30,7 +31,7 @@ export const Menu = ({ children }) => {
                 <Link to={routes.Register}>Register</Link>
               </li>
               <li>
-                <Link to={routes.Jokes}>Jokes</Link>
+                <Link to={routes.Admin}>Admin</Link>
               </li>
             </ul>
           </div>

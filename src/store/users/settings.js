@@ -3,7 +3,7 @@ import { userService } from "../../_services";
 // import { alertActions } from "./";
 // import { history } from "../../_helpers";
 
-export const login = (username, password, history ) => {
+export const login = (username, password, history) => {
   return dispatch => {
     dispatch(request({ username }));
 
@@ -36,14 +36,14 @@ export const logout = () => {
   return { type: USERS.LOGOUT };
 };
 
-export const register = (user, history) => {
+export const register = user => {
   return dispatch => {
     dispatch(request(user));
 
     userService.register(user).then(
       user => {
         dispatch(success());
-        history.push("/login");
+        // history.push("/admin");
         // dispatch(alertActions.success("Registration successful"));
       },
       error => {
