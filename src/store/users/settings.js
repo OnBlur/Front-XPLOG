@@ -36,14 +36,16 @@ export const logout = () => {
   return { type: USERS.LOGOUT };
 };
 
-export const register = user => {
+export const register = (user, history) => {
   return dispatch => {
     dispatch(request(user));
 
     userService.register(user).then(
       user => {
         dispatch(success());
-        // history.push("/admin");
+        if (history) {
+          history.push("/admin");
+        }
         // dispatch(alertActions.success("Registration successful"));
       },
       error => {

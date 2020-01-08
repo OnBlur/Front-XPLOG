@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { login, logout } from "../store/users/settings";
 
-export const Login = ({history}) => {
+export const Login = ({ history }) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +28,7 @@ export const Login = ({history}) => {
   return (
     <div className="login-form">
       <h2>Login</h2>
+      <p>To login, register first 😊</p>
       <form name="form" className="form" onSubmit={handleSubmit}>
         <div
           className={

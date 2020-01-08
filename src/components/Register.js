@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { register } from "../store/users/settings";
 
-export const Register = ({history}) => {
+export const Register = ({ history }) => {
   const dispatch = useDispatch();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -21,9 +21,6 @@ export const Register = ({history}) => {
       dispatch(register({ firstName, lastName, username, password }, history));
     }
   };
-
-  //   const { registering } = this.props;
-  //   const { user, submitted } = this.state;
 
   return (
     <div className="login-form">
