@@ -1,6 +1,6 @@
 {
   "name": "XPLOG",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "",
   "main": "index.js",
   "homepage": "https://onblur.github.io/Front-XPLOG/",
@@ -32,7 +32,6 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "babel-plugin-object-to-json-parse": "0.0.8",
     "babel-preset-react-native-stage-0": "^1.0.1"
   }
 }

@@ -155,6 +155,8 @@ template {
 
 a {
   background-color: transparent;
+  text-decoration: none;
+  color: #384D4E;
 }
 
 //
@@ -355,7 +357,8 @@ select {
 //
 
 button,
-html input[type="button"], // 1
+html input[type="button"],
+// 1
 input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button; // 2

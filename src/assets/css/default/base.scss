@@ -45,9 +45,136 @@ body {
     padding: 50px;
 
     .entry-component {
-      .page-title {
-        text-align: center;
-        color: $warning;
+      padding: 150px;
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+
+        border-bottom: 4px solid $primary;
+
+        .left {}
+
+        .right {
+          display: flex;
+          align-items: center;
+
+          .filter {
+            display: flex;
+            margin-right: 10px;
+
+            .tag {
+              margin-right: 5px;
+            }
+          }
+
+          .nav {
+            display: flex;
+
+            .ball {
+              width: 20px;
+              height: 20px;
+              background-color: $primary;
+              margin-right: 5px;
+              border-radius: 50%;
+
+              &.active {
+                border: 1px solid black;
+                background-color: white !important;
+              }
+            }
+          }
+        }
+      }
+
+      .entries {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        margin-top: 30px;
+
+        .entry-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          &a {
+            text-decoration: none;
+          }
+
+          .date {
+            margin-bottom: 10px;
+          }
+
+          .entry {
+            width: 230px;
+            height: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+              0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
+            .entry-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 10px;
+
+              .title {
+                font-weight: bold;
+              }
+
+              .comments {
+                width: 10px;
+                height: 10px;
+                background-color: red;
+                border-radius: 50%;
+              }
+            }
+
+            .body {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 12;
+              max-height: 250px;
+              overflow: hidden;
+            }
+
+            &.new {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              cursor: pointer;
+
+              .add-icon {
+                height: 50px;
+                width: 50px;
+                display: flex;
+                background-color: $primary;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .plus {
+                  font-size: 40pt;
+                  color: white;
+                }
+              }
+
+              .add-text {
+                margin-top: 20px;
+                font-size: 13pt;
+                font-weight: bold;
+              }
+            }
+          }
+
+        }
       }
 
       .entries {
@@ -58,13 +185,13 @@ body {
 
         .entry {
           width: 300px;
-          background-color: gray;
-          margin: 5px;
-          padding: 10px;
+          // background-color: gray;
+          // margin: 5px;
+          // padding: 10px;
 
-          display: flex;
-          justify-content: space-between;
-          flex-direction: column-reverse;
+          // display: flex;
+          // justify-content: space-between;
+          // flex-direction: column-reverse;
 
           .content {
             // display: flex;

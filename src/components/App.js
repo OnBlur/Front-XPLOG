@@ -2,67 +2,66 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { getAll } from "../store/users/settings";
-import { removeUser } from "../store/users/settings";
 import { fetchEntries } from "../store/entries/settings";
 
 import Entry from "./Entries/Entry";
 
-export const App = () => {
+export const App = ({ history }) => {
   const dispatch = useDispatch();
   const entries = useSelector(state => state.entryReducer.entries);
-  const users = useSelector(state => state.userReducer.items);
-  const user = useSelector(state => state.authenticationReducer.user);
 
   useEffect(() => {
-    dispatch(getAll());
     dispatch(fetchEntries());
   }, []);
 
-  const handleRemoveUser = id => {
-    return e => dispatch(removeUser(id));
+  const toEntry = () => {
+    history.push("/entry");
   };
 
   return (
     <div className="entry-component">
-      <h1 className="page-title">Welkom terug {user.username}...</h1>
-      <Link to="/entry">Add new...</Link>
+      {/* Header */}
+      <div className="header">
+        <div className="left">
+          <h1>Mijn XPLOG</h1>
+        </div>
+        <div className="right">
+          <div className="filter">
+            <div className="tag">Nieuw</div>
+            <div className="tag">Dag</div>
+            <div className="tag active">Week</div>
+            <div className="tag">Maand</div>
+          </div>
+          <div className="nav">
+            <div className="ball"></div>
+            <div className="ball"></div>
+            <div className="ball active"></div>
+            <div className="ball"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Entries */}
       <div className="entries">
         {entries.map(entry => (
           <Entry
             key={entry.id}
             title={entry.title}
             body={entry.body}
+            date={entry.date}
             id={entry.id}
           />
         ))}
+        <div className="entry-wrapper" onClick={() => toEntry()}>
+          <div className="date">.</div>
+          <div className="entry new">
+            <div className="add-icon">
+              <div className="plus">+</div>
+            </div>
+            <div className="add-text">Add new</div>
+          </div>
+        </div>
       </div>
-      <h3>All registered users:</h3>
-      {users && (
-        <ul>
-          {users.map((user, index) => (
-            <li key={user.id}>
-              {user.firstName + " " + user.lastName}
-              {user.deleting ? (
-                <em> - Deleting...</em>
-              ) : user.deleteError ? (
-                <span className="text-danger">
-                  {" "}
-                  - ERROR: {user.deleteError}
-                </span>
-              ) : (
-                <span>
-                  {" "}
-                  - <a onClick={handleRemoveUser(user.id)}>Delete</a>
-                </span>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-      <p>
-        <Link to="/login">Logout</Link>
-      </p>
     </div>
   );
 };

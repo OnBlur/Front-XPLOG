@@ -33,6 +33,9 @@ export const Menu = ({ children }) => {
               <li>
                 <Link to={routes.Admin}>Admin</Link>
               </li>
+              <li>
+                <Link to={routes.Login}>Logout</Link>
+              </li>
             </ul>
           </div>
           <div className="close">

@@ -3,14 +3,15 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 
 import { editEntry } from "../../store/entries/settings";
+import { removeEntry } from "../../store/entries/settings";
 
-const EditEntry = ({history, location}) => {
+const EditEntry = ({ history, location }) => {
   let { id } = useParams();
   const dispatch = useDispatch();
 
   const routes = {
-    Home: '/',
-  }
+    Home: "/"
+  };
 
   const [entry, setEntry] = useState({
     id: location.state.entryId,
@@ -25,8 +26,13 @@ const EditEntry = ({history, location}) => {
 
   const editHandler = event => {
     event.preventDefault();
-    
+
     dispatch(editEntry(entry));
+    history.push(routes.Home);
+  };
+
+  const deleteEntry = id => {
+    dispatch(removeEntry(id));
     history.push(routes.Home);
   };
 
@@ -50,6 +56,9 @@ const EditEntry = ({history, location}) => {
       ></textarea>
       <p>id: {id}</p>
       <input type="submit" value="Save" />
+      <button type="reset" value="Reset" onClick={() => deleteEntry(entry.id)}>
+        Delete
+      </button>
     </form>
   );
 };
