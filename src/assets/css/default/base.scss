@@ -51,8 +51,21 @@ body {
       // justify-content: center;
       // align-items: center;
 
+      .register-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 30px;
+        }
+      }
+
       .entry-component {
-        height: calc(100vh - 67px);
+        height: calc(100vh - 65px);
         margin-right: 150px;
         margin-left: 150px;
 
@@ -192,7 +205,7 @@ body {
       }
 
       .form-wrapper {
-        height: calc(100vh - 67px);
+        height: calc(100vh - 65px);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -202,7 +215,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: calc(100vh - 67px);
+        height: calc(100vh - 65px);
         width: 100%;
         background-color: $primary;
 
