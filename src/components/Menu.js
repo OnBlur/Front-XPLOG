@@ -17,7 +17,7 @@ export const Menu = ({ children }) => {
   if (menuState) {
     console.log("Is menu open?", menuState);
     return (
-      <div>
+      <div className="wrapper">
         <div className="menu">
           <div className="navigation">
             <ul>

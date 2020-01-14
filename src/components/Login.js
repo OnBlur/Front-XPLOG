@@ -26,51 +26,52 @@ export const Login = ({ history }) => {
   //   const { loggingIn } = this.props;
 
   return (
-    <div className="login-form">
-      <h2>Login</h2>
-      <p>To login, register first 😊</p>
-      <form name="form" className="form" onSubmit={handleSubmit}>
-        <div
-          className={
-            "form-group" + (submitted && !username ? " has-error" : "")
-          }
-        >
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            name="username"
-            value={username}
-            onChange={({ target }) => setUsername(target.value)}
-          />
-          {submitted && !username && (
-            <div className="help-block">Username is required</div>
-          )}
-        </div>
-        <div
-          className={
-            "form-group" + (submitted && !password ? " has-error" : "")
-          }
-        >
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            name="password"
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-          />
-          {submitted && !password && (
-            <div className="help-block">Password is required</div>
-          )}
-        </div>
-        <div className="form-group">
-          <button className="btn btn-primary">Login</button>
-          <Link to="/register" className="btn btn-link">
-            Register
-          </Link>
-        </div>
-      </form>
+    <div className="login-wrapper">
+      <div className="login-form">
+        <h1 className="login-text">XPLOG</h1>
+        <form name="form" className="form" onSubmit={handleSubmit}>
+          <div
+            className={
+              "form-group" + (submitted && !username ? " has-error" : "")
+            }
+          >
+            <input
+              type="text"
+              className="form-control"
+              name="username"
+              placeholder="example@student.nhlstenden.com"
+              value={username}
+              onChange={({ target }) => setUsername(target.value)}
+            />
+            {submitted && !username && (
+              <div className="help-block">Username is required</div>
+            )}
+          </div>
+          <div
+            className={
+              "form-group" + (submitted && !password ? " has-error" : "")
+            }
+          >
+            <input
+              type="password"
+              className="form-control"
+              name="password"
+              placeholder="************"
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
+            />
+            {submitted && !password && (
+              <div className="help-block">Password is required</div>
+            )}
+          </div>
+          <div className="form-group">
+            <button className="btn btn-primary">Login</button>
+            <Link to="/register" className="btn btn-link">
+              Register
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

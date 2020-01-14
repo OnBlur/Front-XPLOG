@@ -1,4 +1,4 @@
-$nunito-font-dir: "~assets/fonts/nunito/";
+$polly-font-dir: "~assets/fonts/polly/";
 // $icon-dir: "~static/icons/";
 
 
@@ -7,8 +7,8 @@ $nunito-font-dir: "~assets/fonts/nunito/";
 /*===============================================================================================*/
 
 @font-face {
-  font-family: "McLaren";
-  src: url($nunito-font-dir+"Nunito-Regular.ttf") format("truetype");
+  font-family: "Polly";
+  src: url($polly-font-dir+"Polly-Regular.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
