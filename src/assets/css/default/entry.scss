@@ -56,15 +56,15 @@
             justify-content: center;
             margin-bottom: 20px;
 
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2),
+                0 6px 20px 0 rgba(0, 0, 0, .1);
+
             input {
-                padding-left: 90px;
-                padding-right: 90px;
-                padding-top: 15px;
-                padding-bottom: 15px;
-                border-radius: 10px;
+                width: 100%;
                 border: none;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-                    0 6px 20px 0 rgba(0, 0, 0, 0.1);
                 text-align: center;
             }
         }

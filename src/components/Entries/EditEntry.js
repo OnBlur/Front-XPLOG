@@ -62,7 +62,6 @@ const EditEntry = ({ history, location }) => {
         </div>
       </div>
       {/* Entry */}
-      <p>id: {id}</p>
       <div className="entry-form">
         <div className="title-input">
           <input
