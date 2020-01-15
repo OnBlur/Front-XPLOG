@@ -1,0 +1,151 @@
+.entry-editor {
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+
+    display: flex;
+    justify-content: space-between;
+
+    .concepts {
+        height: 760px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .concept-header {
+            padding-left: 60px;
+            padding-right: 60px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 20px;
+            color: white;
+            background-color: $primary;
+        }
+
+        .concept {
+            cursor: pointer;
+            width: 230px;
+            height: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
+            .concept-title {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .concept-body {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 12;
+                max-height: 250px;
+                overflow: hidden;
+
+            }
+        }
+    }
+
+    .entry-form {
+        width: 700px;
+
+        .title-input {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            input {
+                padding-left: 90px;
+                padding-right: 90px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                border-radius: 10px;
+                border: none;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                    0 6px 20px 0 rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+        }
+
+        .body-input {
+            textarea {
+                padding: 30px;
+                width: 100%;
+                border-radius: 10px;
+                border: none;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                    0 6px 20px 0 rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    .entry-settings {
+        width: 200px;
+        height: 600px;
+        background-color: $primary;
+        border-radius: 15px;
+        margin-top: 100px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .settings-format {
+            .format-header {
+                color: white;
+                margin-bottom: 10px;
+            }
+        }
+
+        .settings-options {
+            .options-header {
+                color: white;
+                margin-bottom: 10px;
+            }
+
+            .options-wrapper {
+                .option {
+                    cursor: pointer;
+                    width: 150px;
+                    height: 30px;
+                    background-color: white;
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                    color: $primary;
+                    border: none;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+
+        .settings-publish {
+            .publish-header {
+                color: white;
+                margin-bottom: 10px;
+            }
+
+            .options-wrapper {
+                .option {
+                    cursor: pointer;
+                    width: 150px;
+                    height: 30px;
+                    background-color: white;
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                    color: $primary;
+                    border: none;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

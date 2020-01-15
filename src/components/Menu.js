@@ -50,7 +50,7 @@ export const Menu = ({ children }) => {
   } else {
     console.log("Is menu open?", menuState);
     return (
-      <div>
+      <div className="wrapper">
         <div onClick={() => dispatch({ type: "SET_MENU" })}>Menu</div>
         <div className="container">{children}</div>
       </div>
