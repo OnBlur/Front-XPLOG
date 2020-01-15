@@ -95,7 +95,7 @@ const AddEntry = ({ history }) => {
           </div>
         </div>
         <div className="settings-publish">
-          <div className="publish-header">Lettertype</div>
+          <div className="publish-header">Publiceren</div>
           <div className="options-wrapper">
             <div className="option">Iedereen</div>
             <input className="option" type="submit" value="Plaatsen" />
