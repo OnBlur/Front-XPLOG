@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 
-import { editEntry } from "../../store/entries/settings";
-import { removeEntry } from "../../store/entries/settings";
+import { editEntry } from "../../store/entries/actions";
+import { removeEntry } from "../../store/entries/actions";
 
 const EditEntry = ({ history, location }) => {
   let { id } = useParams();
@@ -38,8 +38,8 @@ const EditEntry = ({ history, location }) => {
         <div className="concept-header">Concept</div>
         {/* First concept */}
         <div className="concept">
-          <div class="concept-title">Reflecteren</div>
-          <div class="concept-body">
+          <div className="concept-title">Reflecteren</div>
+          <div className="concept-body">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout. The point
             of using Lorem Ipsum is that it has a more-or-less normal
@@ -49,8 +49,8 @@ const EditEntry = ({ history, location }) => {
         </div>
         {/* Second concept */}
         <div className="concept">
-          <div class="concept-title">User journeys</div>
-          <div class="concept-body">
+          <div className="concept-title">User journeys</div>
+          <div className="concept-body">
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
             humour, or randomised words which don't look even slightly
@@ -79,8 +79,8 @@ const EditEntry = ({ history, location }) => {
             placeholder="Schrijf hier je reflectie..."
             name=""
             id=""
-            rows="4"
-            cols="50"
+            rows="30"
+            cols="60"
             value={entry.body}
             onChange={({ target }) =>
               setEntry({ ...entry, body: target.value })

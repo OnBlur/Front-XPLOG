@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { register } from "../store/users/settings";
+import { register } from "../store/users/actions";
 
 export const Register = ({ history }) => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { addEntry } from "../../store/entries/settings";
+import { addEntry } from "../../store/entries/actions";
 
 const AddEntry = ({ history }) => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const AddEntry = ({ history }) => {
     Home: "/"
   };
 
-  // TODO: get id from api and store it in the state. Needs to happen in the Entries settings
+  // TODO: get id from api and store it in the state. Needs to happen in the Entries actions
   const [id, setId] = useState(Math.floor(Math.random() * 10000));
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -33,8 +33,8 @@ const AddEntry = ({ history }) => {
         <div className="concept-header">Concept</div>
         {/* First concept */}
         <div className="concept">
-          <div class="concept-title">Reflecteren</div>
-          <div class="concept-body">
+          <div className="concept-title">Reflecteren</div>
+          <div className="concept-body">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout. The point
             of using Lorem Ipsum is that it has a more-or-less normal
@@ -44,8 +44,8 @@ const AddEntry = ({ history }) => {
         </div>
         {/* Second concept */}
         <div className="concept">
-          <div class="concept-title">User journeys</div>
-          <div class="concept-body">
+          <div className="concept-title">User journeys</div>
+          <div className="concept-body">
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
             humour, or randomised words which don't look even slightly
@@ -72,8 +72,8 @@ const AddEntry = ({ history }) => {
             placeholder="Schrijf hier je reflectie..."
             name=""
             id=""
-            rows="4"
-            cols="50"
+            rows="30"
+            cols="60"
             value={body}
             onChange={({ target }) => setBody(target.value)}
           />

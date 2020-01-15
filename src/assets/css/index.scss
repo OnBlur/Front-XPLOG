@@ -1,6 +1,11 @@
 // Default scss
+@import "fonts";
 @import "default/reset";
 @import "default/colors";
 @import "default/base";
-@import "default/entry";
-@import "fonts";
+
+@import "components/navbar";
+@import "components/login";
+@import "components/dashboard";
+@import "components/entry";
+@import "components/entryform";

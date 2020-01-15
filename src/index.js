@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { store } from "./_helpers";
 
 import App from "./components/App";
+import Dashboard from "./components/Dashboard";
 import Menu from "./components/Menu";
 import Jokes from "./components/Jokes";
 import Login from "./components/Login";
@@ -35,9 +36,9 @@ const routes = {
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Menu>
+      <App>
         <Switch>
-          <PrivateRoute exact path={routes.Home} component={App} />
+          <PrivateRoute exact path={routes.Home} component={Dashboard} />
           <PrivateRoute exact path={routes.Jokes} component={Jokes} />
           <PrivateRoute exact path={routes.Entries} component={AddEntry} />
           <PrivateRoute exact path={routes.Entry} component={EditEntry} />
@@ -45,7 +46,7 @@ ReactDOM.render(
           <Route exact path={routes.Login} component={Login} />
           <Route exact path={routes.Register} component={Register} />
         </Switch>
-      </Menu>
+      </App>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")

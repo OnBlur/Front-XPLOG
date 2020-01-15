@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export const Menu = ({ children }) => {
+export const Menu = () => {
   const menuState = useSelector(state => state.stateReducer.menuState);
   const dispatch = useDispatch();
 
@@ -17,44 +17,24 @@ export const Menu = ({ children }) => {
   if (menuState) {
     console.log("Is menu open?", menuState);
     return (
-      <div className="wrapper">
-        <div className="menu">
-          <div className="navigation">
-            <ul>
-              <li>
-                <Link to={routes.Home}>Home</Link>
-              </li>
-              <li>
-                <Link to={routes.Login}>Login</Link>
-              </li>
-              <li>
-                <Link to={routes.Register}>Register</Link>
-              </li>
-              <li>
-                <Link to={routes.Admin}>Admin</Link>
-              </li>
-              <li>
-                <Link to={routes.Login}>Logout</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="close">
-            <a className="icon" onClick={() => dispatch({ type: "SET_MENU" })}>
-              X
-            </a>
-          </div>
+      <div className="navbar">
+        <div className="navigation">
+          <Link to={routes.Home}>Home</Link>
+          <Link to={routes.Login}>Login</Link>
+          <Link to={routes.Register}>Register</Link>
+          <Link to={routes.Admin}>Admin</Link>
+          <Link to={routes.Login}>Logout</Link>
         </div>
-        <div className="container">{children}</div>
+        <div className="close">
+          <a className="icon" onClick={() => dispatch({ type: "SET_MENU" })}>
+            X
+          </a>
+        </div>
       </div>
     );
   } else {
     console.log("Is menu open?", menuState);
-    return (
-      <div className="wrapper">
-        <div onClick={() => dispatch({ type: "SET_MENU" })}>Menu</div>
-        <div className="container">{children}</div>
-      </div>
-    );
+    return <div onClick={() => dispatch({ type: "SET_MENU" })}>Menu</div>;
   }
 };
 

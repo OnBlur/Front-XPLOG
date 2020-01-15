@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAll } from "../store/users/settings";
-import { removeUser } from "../store/users/settings";
-import { register } from "../store/users/settings";
+import { getAll } from "../store/users/actions";
+import { removeUser } from "../store/users/actions";
+import { register } from "../store/users/actions";
 
 export const Admin = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export const Admin = () => {
   };
 
   return (
-    <div className="entry-component">
+    <div className="dashboard">
       <form name="form" className="register-form" onSubmit={handleSubmit}>
         <h2>New user</h2>
         <div
