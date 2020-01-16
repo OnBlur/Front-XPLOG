@@ -1,18 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { routes } from "../_helpers";
 
 export const Menu = () => {
   const menuState = useSelector(state => state.stateReducer.menuState);
   const dispatch = useDispatch();
-
-  const routes = {
-    Home: "/",
-    Jokes: "/jokes",
-    Login: "/login",
-    Admin: "/admin",
-    Register: "/register"
-  };
 
   if (menuState) {
     console.log("Is menu open?", menuState);

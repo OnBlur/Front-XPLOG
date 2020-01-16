@@ -4,12 +4,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute";
 
 import { Provider } from "react-redux";
-import { store } from "./_helpers";
+import { store, routes } from "./_helpers";
 
 import App from "./components/App";
 import Dashboard from "./components/Dashboard";
-import Menu from "./components/Menu";
-import Jokes from "./components/Jokes";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
 import Register from "./components/Register";
@@ -23,23 +21,12 @@ import "./assets/css/index.scss";
 import { configureFakeBackend } from "./_helpers/fake-backend";
 configureFakeBackend();
 
-const routes = {
-  Home: "/",
-  Jokes: "/jokes",
-  Entries: "/entry",
-  Entry: "/entry/:id",
-  Admin: "/admin",
-  Login: "/login",
-  Register: "/register"
-};
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <App>
         <Switch>
           <PrivateRoute exact path={routes.Home} component={Dashboard} />
-          <PrivateRoute exact path={routes.Jokes} component={Jokes} />
           <PrivateRoute exact path={routes.Entries} component={AddEntry} />
           <PrivateRoute exact path={routes.Entry} component={EditEntry} />
           <PrivateRoute exact path={routes.Admin} component={Admin} />
