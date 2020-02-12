@@ -1,6 +1,6 @@
 # XPLOG-Front-end
  
-> Het bedenken en creëren van een systeem dat up to date is met de tijd, voldoet aan gemaks-technieken, rekening houdt met de privacy van de student, en ruimte heeft tot implementatie in andere werkvelden. 
+> Het bedenken en creëren van een systeem dat up to date is met de tijd, voldoet aan gemaks-technieken, rekening houdt met de privacy van de student, en ruimte heeft tot implementatie in andere werkvelden. [Online versie](https://onblur.github.io/)
 
 ## Build Setup
 
